@@ -1,0 +1,54 @@
+{
+  "name": "@kodentuzo/spotkit",
+  "version": "0.1.0",
+  "description": "Small, framework-free helpers for apps on Spotcraft: who the user is (the user pool's tokens), the client's address, health",
+  "keywords": [
+    "spotcraft",
+    "auth",
+    "jwt",
+    "jwks",
+    "better-auth"
+  ],
+  "homepage": "https://github.com/kodentuzo/spotkit#readme",
+  "bugs": {
+    "url": "https://github.com/kodentuzo/spotkit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodentuzo/spotkit.git"
+  },
+  "license": "MIT",
+  "author": "Ivan Vinski (https://www.vin.ski)",
+  "type": "module",
+  "packageManager": "pnpm@12.4.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "check": "biome check",
+    "fix": "biome check --write",
+    "typecheck": "tsc",
+    "test": "node --test 'test/**/*.test.ts'",
+    "verify": "pnpm check && pnpm typecheck && pnpm test && pnpm build",
+    "prepack": "pnpm build"
+  },
+  "dependencies": {
+    "jose": "^6.2.17"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.7",
+    "@types/node": "^26.6.6",
+    "typescript": "^6.0.3"
+  }
+}
